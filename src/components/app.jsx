@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react';
 
 import store from '../store';
 
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = store.getState();
@@ -16,6 +16,7 @@ export default class App extends React.Component {
     return (
       <div>
         <div>
+            <h1>Boilerplate</h1>
             {this.props.children}
         </div>
         <div>
