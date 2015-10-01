@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Route, Router} from 'react-router';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Route, Router } from 'react-router'
 
-import App from './components/app';
+import App from './components/app'
 
 ReactDOM.render((
   <Router>
-    <Route path="/" component={App} />
+    <Route path='/' component={App} />
   </Router>
-), document.getElementById('root'));
+  ), document.getElementById('root'))

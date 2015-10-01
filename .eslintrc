@@ -159,7 +159,7 @@
     "padded-blocks": [0],
     "quote-props": [0],
     "radix": [0],
-    "semi": [2],
+    "semi": [2, "never"],
     "semi-spacing": [2, {"before": false, "after": true}],
     "sort-vars": [0],
     "space-after-keywords": [2, "always"],

@@ -1,37 +1,42 @@
-var path = require('path');
-var express = require('express');
-var webpack = require('webpack');
+const path = require('path')
+const express = require('express')
+const webpack = require('webpack')
 
-var app = express();
+const app = express()
 
-var isDevelopment = (process.env.NODE_ENV !== 'production');
-var static_path = path.join(__dirname, 'public');
+const isDevelopment = (process.env.NODE_ENV !== 'production')
+const static_path = path.join(__dirname, 'public')
+
+const staticPort = process.env.PORT || 8080
 
 app.use(express.static(static_path))
-  .get('/', function(req, res) {
+  .get('/', (req, res) => {
     res.sendFile('index.html', {
       root: static_path
-    });
+    })
   })
-  .listen(process.env.PORT || 8080, function(error) {
+  .listen(staticPort, (error) => {
     if (error) {
-      console.log(error);
+      console.log(error)
+      return
     }
-    console.log('Listening at localhost:8080');
-  });
+    console.log(`Listening at localhost:${staticPort}`)
+  })
 
 if (isDevelopment) {
-  var config = require('./webpack.config');
-  var WebpackDevServer = require('webpack-dev-server');
+  const config = require('./webpack.config')
+  const WebpackDevServer = require('webpack-dev-server')
+  const serverPort = 3001
 
   new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     hot: true
   })
-  .listen(3001, 'localhost', function(error) {
+  .listen(serverPort, 'localhost', (error) => {
     if (error) {
-      console.log(error);
+      console.log(error)
+      return
     }
-    console.log('Listening at localhost:3001');
-  });
+    console.log(`Listening at localhost:${serverPort}`)
+  })
 }

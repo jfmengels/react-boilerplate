@@ -1,14 +1,15 @@
-import { ACTION_TYPE } from '../actionTypes';
+import { ACTION_TYPE } from '../actionTypes'
 
-const initialState = {
-};
+const initialState = {}
 
-export default function reducer(state=initialState, action) {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTION_TYPE:
-      console.log(action.message);
-      return { ...state };
+      console.log(action.message)
+      return { ...state }
     default:
-      return state;
+      return state
   }
 }
+
+export default reducer
