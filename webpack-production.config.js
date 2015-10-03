@@ -3,13 +3,17 @@
 var path = require('path')
 var webpack = require('webpack')
 
+const srcPath = path.resolve(__dirname, 'public', 'client')
+const buildPath = path.join(__dirname, 'public', 'build')
+const babelExclude = path.resolve(__dirname, 'node_modules')
+
 module.exports = {
   devtool: 'source-map',
   entry: [
-    './src/entry'
+    './public/client/index'
   ],
   output: {
-    path: path.join(__dirname, 'public', 'build'),
+    path: buildPath,
     filename: 'bundle.js',
     publicPath: '/build/'
   },
@@ -30,13 +34,14 @@ module.exports = {
       {
         test: /\.jsx$/,
         loader: 'babel',
-        include: path.resolve(__dirname, 'src')
+        include: srcPath,
+        exclude: babelExclude
       },
       {
         test: /\.js$/,
         loader: 'babel',
-        include: path.resolve(__dirname, 'src'),
-        exclude: path.resolve(__dirname, 'node_modules')
+        include: srcPath,
+        exclude: babelExclude
       },
       {
         test: /\.css$/,

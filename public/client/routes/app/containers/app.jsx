@@ -1,7 +1,7 @@
 import React from 'react'
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react'
 
-import store from '../store'
+import store from '../../../modules/store'
 
 export default class App extends React.Component {
   constructor (props, context) {

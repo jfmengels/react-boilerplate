@@ -3,17 +3,21 @@
 var path = require('path')
 var webpack = require('webpack')
 
+const srcPath = path.resolve(__dirname, 'public', 'client')
+const buildPath = path.join(__dirname, 'public', 'build')
+const babelExclude = path.resolve(__dirname, 'node_modules')
+
 module.exports = {
   devtool: 'eval',
 
   entry: [
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:3001',
-    './src/entry'
+    srcPath
   ],
 
   output: {
-    path: path.resolve(__dirname, 'public', 'build'),
+    path: buildPath,
     filename: 'bundle.js',
     publicPath: '/build/'
   },
@@ -32,13 +36,14 @@ module.exports = {
       {
         test: /\.jsx$/,
         loader: 'react-hot!babel',
-        include: path.resolve(__dirname, 'src')
+        include: srcPath,
+        exclude: babelExclude
       },
       {
         test: /\.js$/,
         loader: 'babel',
-        include: path.resolve(__dirname, 'src'),
-        exclude: path.resolve(__dirname, 'node_modules')
+        include: srcPath,
+        exclude: babelExclude
       },
       {
         test: /\.css$/,
