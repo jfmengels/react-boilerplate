@@ -1,9 +1,10 @@
 import React from 'react'
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react'
 
 import store from '../../../modules/store'
 
 import Counter from '../../counter/containers/counter'
+import Debug from '../components/Debug'
+import Header from '../components/Header'
 
 export default class App extends React.Component {
   constructor (props, context) {
@@ -17,13 +18,9 @@ export default class App extends React.Component {
   render () {
     return (
     <div>
-      <div>
-        <h1>Boilerplate</h1>
-        <Counter store={store} />
-      </div>
-      <DebugPanel top right bottom>
-        <DevTools store={store} monitor={LogMonitor} />
-      </DebugPanel>
+      <Header />
+      <Counter store={store} />
+      <Debug store={store} />
     </div>
     )
   }
