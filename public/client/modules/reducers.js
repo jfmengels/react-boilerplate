@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux'
 
-import sample from './sample/reducers'
+import counter from './counter/reducers'
 
-const reducers = combineReducers({
-  sample
+export default combineReducers({
+  counter
 })
-
-export default reducers

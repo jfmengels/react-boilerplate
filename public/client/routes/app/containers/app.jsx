@@ -3,6 +3,8 @@ import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react'
 
 import store from '../../../modules/store'
 
+import Counter from '../../counter/containers/counter'
+
 export default class App extends React.Component {
   constructor (props, context) {
     super(props, context)
@@ -17,18 +19,12 @@ export default class App extends React.Component {
     <div>
       <div>
         <h1>Boilerplate</h1>
-        {this.props.children}
+        <Counter store={store} />
       </div>
-      <div>
-        <DebugPanel top right bottom>
-          <DevTools store={store} monitor={LogMonitor} />
-        </DebugPanel>
-      </div>
+      <DebugPanel top right bottom>
+        <DevTools store={store} monitor={LogMonitor} />
+      </DebugPanel>
     </div>
     )
   }
-}
-
-App.propTypes = {
-  children: React.PropTypes.node
 }
