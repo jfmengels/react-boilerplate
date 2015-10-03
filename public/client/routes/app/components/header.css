@@ -1,0 +1,8 @@
+.red {
+  color: blue;
+}
+
+.normal {
+  composes: red;
+  font-size: 3em;
+}

@@ -1,7 +1,8 @@
 'use strict'
 
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const srcPath = path.resolve(__dirname, 'public', 'client')
 const buildPath = path.join(__dirname, 'public', 'build')
@@ -23,6 +24,7 @@ module.exports = {
   },
 
   plugins: [
+    new ExtractTextPlugin('style.css', { allChunks: true }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
@@ -47,7 +49,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css'
+        loader:
+        'style!css?modules'
       }
     ]
   }
