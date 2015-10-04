@@ -21,9 +21,10 @@ export default class Counter extends React.Component {
   }
 
   render () {
+    const store = this.props.store.getState()
     return (
       <CounterDisplay
-        count={this.props.store.getState().counter.count}
+        count={store.getIn(['counter', 'count'])}
         amount={this.state.amount}
         onIncrement={this.onIncrement.bind(this, this.state.amount)}
         onDecrement={this.onDecrement.bind(this, this.state.amount)}

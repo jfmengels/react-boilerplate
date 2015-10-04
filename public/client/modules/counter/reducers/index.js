@@ -1,19 +1,16 @@
+import { createReducer } from 'redux-immutablejs'
+
 import { COUNTER_INCREMENT, COUNTER_DECREMENT } from '../constants'
 
 const initialState = {
   count: 0
 }
 
-export default (state = initialState, action) => {
-  let count
-  switch (action.type) {
-    case COUNTER_INCREMENT:
-      count = state.count + action.amount
-      return { ...state, count }
-    case COUNTER_DECREMENT:
-      count = state.count - action.amount
-      return { ...state, count }
-    default:
-      return state
+export default createReducer(initialState, {
+  [COUNTER_INCREMENT]: (state, { amount }) => {
+    return state.update('count', (count) => count + amount)
+  },
+  [COUNTER_DECREMENT]: (state, { amount }) => {
+    return state.update('count', (count) => count - amount)
   }
-}
+})

@@ -1,8 +1,12 @@
 import { compose, createStore, applyMiddleware } from 'redux'
 import { devTools, persistState } from 'redux-devtools'
+import { combineReducers } from 'redux-immutablejs'
 import thunk from 'redux-thunk'
 
-import nextReducer from './reducers'
+import * as reducers from './reducers'
+
+const reducer = combineReducers(reducers)
+const store = reducer()
 
 const finalCreateStore = compose(
   applyMiddleware(thunk),
@@ -12,16 +16,4 @@ const finalCreateStore = compose(
   persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
 )(createStore)
 
-export const configureStore = (initialState) => {
-  const store = finalCreateStore(nextReducer, initialState)
-
-  if (module.hot) {
-    module.hot.accept('./reducers', () => {
-      store.replaceReducer(require('./reducers'))
-    })
-  }
-
-  return store
-}
-
-export default configureStore()
+export default finalCreateStore(reducer, store)
