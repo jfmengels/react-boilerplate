@@ -1,2 +1,6 @@
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
-export const COUNTER_DECREMENT = 'COUNTER_DECREMENT'
+import { createConstants } from '../utils'
+
+export default createConstants([
+  'COUNTER_INCREMENT',
+  'COUNTER_DECREMENT'
+])
