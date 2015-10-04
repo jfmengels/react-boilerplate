@@ -1,8 +1,7 @@
 import React from 'react'
 
 import CounterDisplay from '../components/counter'
-import counterIncrement from '../../../modules/counter/actions/increment'
-import counterDecrement from '../../../modules/counter/actions/decrement'
+import { increment, decrement } from '../../../modules/counter/actions'
 
 export default class Counter extends React.Component {
   constructor (props, context) {
@@ -13,11 +12,11 @@ export default class Counter extends React.Component {
   }
 
   onIncrement (amount) {
-    this.props.store.dispatch(counterIncrement(amount))
+    this.props.store.dispatch(increment(amount))
   }
 
   onDecrement (amount) {
-    this.props.store.dispatch(counterDecrement(amount))
+    this.props.store.dispatch(decrement(amount))
   }
 
   render () {
