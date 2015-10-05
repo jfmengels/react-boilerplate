@@ -1,10 +1,12 @@
 import React from 'react'
 
-import store from '../../../modules/store'
+import createStore from '../../../store'
 
 import Counter from '../../counter/containers/counter'
 import Debug from '../components/Debug'
 import Header from '../components/Header'
+
+const store = createStore()
 
 export default class App extends React.Component {
   constructor (props, context) {

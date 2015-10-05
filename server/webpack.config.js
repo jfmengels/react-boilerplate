@@ -1,19 +1,16 @@
-'use strict'
+import path from 'path'
+import webpack from 'webpack'
 
-const path = require('path')
-const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-
-const srcPath = path.resolve(__dirname, 'public', 'client')
-const buildPath = path.join(__dirname, 'public', 'build')
-const babelExclude = path.resolve(__dirname, 'node_modules')
+const rootPath = path.resolve(__dirname, '..')
+const srcPath = path.resolve(rootPath, 'public', 'client')
+const buildPath = path.join(rootPath, 'public', 'build')
+const babelExclude = path.resolve(rootPath, 'node_modules')
 
 module.exports = {
   devtool: 'eval',
 
   entry: [
-    'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:3001',
+    'webpack-hot-middleware/client',
     srcPath
   ],
 
@@ -24,7 +21,7 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('style.css', { allChunks: true }),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],

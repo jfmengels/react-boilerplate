@@ -1,8 +1,8 @@
-.red {
+.blue {
   color: blue;
 }
 
 .normal {
-  composes: red;
+  composes: blue;
   font-size: 3em;
 }
