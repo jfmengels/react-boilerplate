@@ -7,7 +7,8 @@ import Counter from '../../counter/containers/counter'
 import Debug from '../components/Debug'
 import Header from '../components/Header'
 
-const store = createStore(fromJS(window.INITIAL_STATE))
+const store = createStore(fromJS({}))
+// const store = createStore(fromJS(window.INITIAL_STATE))
 
 export default class App extends React.Component {
   constructor (props, context) {
