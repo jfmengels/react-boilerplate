@@ -2,6 +2,8 @@ import path from 'path'
 import express from 'express'
 import webpack from 'webpack'
 
+import renderer from './renderer'
+
 const app = express()
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -29,5 +31,7 @@ if (isDevelopment) {
 
   app.use(webpackHotMiddleware(webpackCompiler))
 }
+
+app.use(renderer())
 
 export default app
