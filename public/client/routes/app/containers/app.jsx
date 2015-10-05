@@ -1,4 +1,5 @@
 import React from 'react'
+import { fromJS } from 'immutable'
 
 import createStore from '../../../store'
 
@@ -6,7 +7,7 @@ import Counter from '../../counter/containers/counter'
 import Debug from '../components/Debug'
 import Header from '../components/Header'
 
-const store = createStore()
+const store = createStore(fromJS(window.INITIAL_STATE))
 
 export default class App extends React.Component {
   constructor (props, context) {

@@ -3,8 +3,8 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <%= content %>
-    <div id="root"></div>
+    <div id="root"><%= html %></div>
+    <script>var INITIAL_STATE = <%= initialState %>;</script>
     <script type="text/javascript" src="/build/bundle.js"></script>
   </body>
 </html>
