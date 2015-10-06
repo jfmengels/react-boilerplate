@@ -1,9 +1,9 @@
 import { expect } from 'chai'
 import { Map as ImmMap } from 'immutable'
 
-import reducer from '../../../public/client/modules/counter/reducers'
-import increment from '../../../public/client/modules/counter/actions/increment'
-import decrement from '../../../public/client/modules/counter/actions/decrement'
+import reducer from './'
+import increment from '../actions/increment'
+import decrement from '../actions/decrement'
 
 describe('counter reducer', () => {
   let state
