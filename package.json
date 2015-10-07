@@ -8,7 +8,7 @@
     "test-unit": "mocha",
     "test-unit:w": "npm run test-unit -- --watch",
     "lint": "standard && eslint src",
-    "postinstall": "webpack --config ./webpack-production.config.js --progress --colors",
+    "postinstall": "webpack --config ./server/webpack-production.config.js --progress --colors",
     "start": "node app.js"
   },
   "author": "Jeroen Engels <jfm.engels@gmail.com>",

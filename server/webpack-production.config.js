@@ -1,16 +1,15 @@
-'use strict'
+const path = require('path')
+const webpack = require('webpack')
 
-var path = require('path')
-var webpack = require('webpack')
-
-const srcPath = path.resolve(__dirname, 'public', 'client')
-const buildPath = path.join(__dirname, 'public', 'build')
-const babelExclude = path.resolve(__dirname, 'node_modules')
+const rootPath = path.resolve(__dirname, '..')
+const srcPath = path.resolve(rootPath, 'public', 'client')
+const buildPath = path.join(rootPath, 'public', 'build')
+const babelExclude = path.resolve(rootPath, 'node_modules')
 
 module.exports = {
   devtool: 'source-map',
   entry: [
-    './public/client/index'
+    srcPath
   ],
   output: {
     path: buildPath,
@@ -32,20 +31,14 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx$/,
-        loader: 'babel',
-        include: srcPath,
-        exclude: babelExclude
-      },
-      {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: 'babel',
         include: srcPath,
         exclude: babelExclude
       },
       {
         test: /\.css$/,
-        loader: 'style!css'
+        loader: 'style!css?modules'
       }
     ]
   }
