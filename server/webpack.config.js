@@ -7,7 +7,7 @@ const buildPath = path.join(rootPath, 'public', 'build')
 const babelExclude = path.resolve(rootPath, 'node_modules')
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client',
     srcPath
