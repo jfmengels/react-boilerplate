@@ -1,13 +1,4 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Router } from 'react-router'
+import { render } from 'react-dom'
+import routes from './routes'
 
-import app from './routes/app'
-import pageNotFound from './routes/pageNotFound'
-
-ReactDOM.render((
-  <Router>
-    {app}
-    {pageNotFound}
-  </Router>
-), document.getElementById('root'))
+render(routes, document.getElementById('root'))
