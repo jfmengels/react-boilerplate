@@ -3,7 +3,7 @@ import { devTools } from 'redux-devtools'
 import { combineReducers } from 'redux-immutablejs'
 import thunk from 'redux-thunk'
 
-import * as reducers from './modules/reducers'
+import * as reducers from './reducers'
 
 const reducer = combineReducers(reducers)
 

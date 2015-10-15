@@ -1,7 +1,7 @@
 import React from 'react'
 
 import CounterDisplay from '../components/counter'
-import { increment, decrement } from '../../../modules/counter/actions'
+import { increment, decrement } from '../../../reducers/counter/actions'
 
 export default class Counter extends React.Component {
   constructor (props, context) {
