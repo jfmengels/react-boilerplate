@@ -1,6 +1,6 @@
 require('babel/register')
 
-var app = require('./server')
+const app = require('./server')
 
 const port = process.env.PORT || 3001
 
