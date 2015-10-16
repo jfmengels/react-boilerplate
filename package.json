@@ -22,7 +22,7 @@
     "file-loader": "^0.8.4",
     "immutable": "^3.7.5",
     "lodash": "^3.10.1",
-    "qs": "^5.1.0",
+    "qs": "^5.2.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-redux": "^4.0.0",
