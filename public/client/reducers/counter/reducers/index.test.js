@@ -1,5 +1,4 @@
 import { expect } from 'chai'
-import { Map as ImmMap } from 'immutable'
 
 import reducer from './'
 import increment from '../actions/increment'
@@ -13,9 +12,8 @@ describe('counter reducer', () => {
   })
 
   it('should have count equal to 0 as the initial state', () => {
-    expect(state).to.equal(ImmMap({
-      count: 0
-    }))
+    expect(state).to.deep.equal({ count: 0 })
+    expect(Object.isFrozen(state)).to.equal(true)
   })
 
   it('should return current state when action type is undefined', () => {
@@ -27,32 +25,24 @@ describe('counter reducer', () => {
   describe('on increment', () => {
     it('should increment count when given increment action', () => {
       const nextState = reducer(state, increment())
-      expect(nextState).to.equal(ImmMap({
-        count: 1
-      }))
+      expect(nextState).to.deep.equal({ count: 1 })
     })
 
     it('should increment count when given increment action with a specific amount', () => {
       const nextState = reducer(state, increment(5))
-      expect(nextState).to.equal(ImmMap({
-        count: 5
-      }))
+      expect(nextState).to.deep.equal({ count: 5 })
     })
   })
 
   describe('on decrement', () => {
     it('should decrement count when given decrement action', () => {
       const nextState = reducer(state, decrement())
-      expect(nextState).to.equal(ImmMap({
-        count: -1
-      }))
+      expect(nextState).to.deep.equal({ count: -1 })
     })
 
     it('should decrement count when given decrement action with a specific amount', () => {
       const nextState = reducer(state, decrement(5))
-      expect(nextState).to.equal(ImmMap({
-        count: -5
-      }))
+      expect(nextState).to.deep.equal({ count: -5 })
     })
   })
 })

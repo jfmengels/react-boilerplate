@@ -1,5 +1,6 @@
-import { createReducer } from 'redux-immutablejs'
+import u from 'updeep'
 
+import { createReducer } from '../../utils'
 import { COUNTER_INCREMENT, COUNTER_DECREMENT } from '../constants'
 
 const initialState = {
@@ -8,9 +9,9 @@ const initialState = {
 
 export default createReducer(initialState, {
   [COUNTER_INCREMENT]: (state, { amount }) => {
-    return state.update('count', (count) => count + amount)
+    return u({ count: (c) => c + amount }, state)
   },
   [COUNTER_DECREMENT]: (state, { amount }) => {
-    return state.update('count', (count) => count - amount)
+    return u({ count: (c) => c - amount }, state)
   }
 })

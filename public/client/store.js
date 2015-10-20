@@ -1,6 +1,6 @@
 import { compose, createStore, applyMiddleware } from 'redux'
 import { devTools } from 'redux-devtools'
-import { combineReducers } from 'redux-immutablejs'
+import { combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
 import * as reducers from './reducers'
